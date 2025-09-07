@@ -455,9 +455,9 @@ with col_v:
                         dur = max(dur, narration_clip.duration + 0.5)
                     img_clip = ImageClip(p, duration=dur)
                     if narration_clip:
-                        img_clip = img_clip.set_audio(narration_clip)
+                        img_clip = img_clip.with_audio(narration_clip)
                     if i > 0 and page_flip_audio is not None:
-                        flip_clip = ImageClip(p, duration=page_flip_audio.duration).set_audio(page_flip_audio)
+                        flip_clip = ImageClip(p, duration=page_flip_audio.duration).with_audio(page_flip_audio)
                         clips.append(flip_clip)
                     clips.append(img_clip)
                 video = concatenate_videoclips(clips, method="compose")
